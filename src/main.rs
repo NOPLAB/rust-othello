@@ -45,7 +45,7 @@ impl Board {
 
         if self.is_free_space(x, y)? {
             self.state[y][x] = p;
-            self.frip(x, y, p);
+            self.flip(x, y, p);
         } else {
             return Err("Put point is not None.");
         }
@@ -96,7 +96,7 @@ impl Board {
         }
     }
 
-    fn frip(&mut self, x: usize, y: usize, p: usize) {
+    fn flip(&mut self, x: usize, y: usize, p: usize) {
         for dir in [
             [-1, -1],
             [-1, 0],
@@ -155,6 +155,8 @@ fn main() {
 
     let mut p = 2;
     loop {
+        // Game Loop
+
         let mut x = String::new();
         std::io::stdin().read_line(&mut x).unwrap();
         let mut y = String::new();
