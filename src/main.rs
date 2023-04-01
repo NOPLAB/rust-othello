@@ -28,9 +28,9 @@ impl Board {
         }
 
         if self.state[y][x] == 0 {
-            return Ok(true);
+            Ok(true)
         } else {
-            return Ok(false);
+            Ok(false)
         }
     }
 
@@ -75,14 +75,14 @@ impl Board {
             == Self::reversi_player_num(p)
         {
             // 指定した色とは反対の色を探す.これで挟まれている色を探索する.
-            return self.search(
+            self.search(
                 (target_x as isize + direction_x) as usize,
                 (target_y as isize + direction_y) as usize,
                 direction_x,
                 direction_y,
                 p,
                 len + 1,
-            );
+            )
         } else if len > 0
             && self.state[(target_y as isize + direction_y) as usize]
                 [(target_x as isize + direction_x) as usize]
@@ -143,7 +143,7 @@ impl Board {
                     _ => panic!(),
                 }
             }
-            print!("\n");
+            println!();
         }
     }
 }
