@@ -162,8 +162,8 @@ fn main() {
         let mut y = String::new();
         std::io::stdin().read_line(&mut y).unwrap();
 
-        let x = x.trim_end().to_owned().parse().unwrap_or(0);
-        let y = y.trim_end().to_owned().parse().unwrap_or(0);
+        let x = x.trim_end().parse().unwrap_or(0);
+        let y = y.trim_end().parse().unwrap_or(0);
 
         println!("({}, {})", x, y);
 
